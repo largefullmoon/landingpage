@@ -1,0 +1,150 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Aeonik';
+}
+
+.green-line {
+  width: 6px;
+  height: 4%;
+  opacity: 0;
+}
+
+@keyframes blink {
+
+  0%,
+  100% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+.animate-blink {
+  animation: blink 3s infinite;
+}
+
+
+.glitch {
+  position: relative;
+  font-size: 60px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: white;
+  animation: glitch 2s infinite;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: white;
+  background: black;
+  overflow: hidden;
+  clip: rect(0, 900px, 0, 0);
+}
+
+.glitch::before {
+  left: 2px;
+  text-shadow: -2px 0 red;
+  animation: glitchTop 2s infinite ease-in-out;
+}
+
+.glitch::after {
+  left: -2px;
+  text-shadow: -2px 0 blue;
+  animation: glitchBottom 2s infinite ease-in-out;
+}
+
+@keyframes glitch {
+  0% {
+    transform: skew(0deg);
+  }
+
+  20% {
+    transform: skew(3deg);
+  }
+
+  40% {
+    transform: skew(-3deg);
+  }
+
+  60% {
+    transform: skew(1deg);
+  }
+
+  80% {
+    transform: skew(-1deg);
+  }
+
+  100% {
+    transform: skew(0deg);
+  }
+}
+
+@keyframes glitchTop {
+
+  0%,
+  100% {
+    clip: rect(0, 900px, 0, 0);
+  }
+
+  10% {
+    clip: rect(10px, 900px, 60px, 0);
+    transform: translate(-3px, -3px);
+  }
+
+  20% {
+    clip: rect(80px, 900px, 85px, 0);
+    transform: translate(2px, 2px);
+  }
+
+  30% {
+    clip: rect(50px, 900px, 90px, 0);
+    transform: translate(-2px, 2px);
+  }
+
+  40% {
+    clip: rect(10px, 900px, 60px, 0);
+    transform: translate(3px, -2px);
+  }
+
+  60% {
+    clip: rect(30px, 900px, 70px, 0);
+    transform: translate(-2px, -3px);
+  }
+}
+
+@keyframes glitchBottom {
+
+  0%,
+  100% {
+    clip: rect(0, 900px, 0, 0);
+  }
+
+  15% {
+    clip: rect(40px, 900px, 75px, 0);
+    transform: translate(3px, 3px);
+  }
+
+  25% {
+    clip: rect(90px, 900px, 100px, 0);
+    transform: translate(-2px, -2px);
+  }
+
+  35% {
+    clip: rect(60px, 900px, 85px, 0);
+    transform: translate(2px, 2px);
+  }
+
+  45% {
+    clip: rect(30px, 900px, 60px, 0);
+    transform: translate(-3px, 3px);
+  }
+}
