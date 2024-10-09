@@ -192,7 +192,7 @@ function App() {
     );
     gsap.fromTo(
       predictiveLine1.current,
-      { xPercent: -600 },  // Start with opacity 0 (faded out)
+      { xPercent: -700 },  // Start with opacity 0 (faded out)
       {
         xPercent: 0,    // Fade in to opacity 1
         scrollTrigger: {
@@ -207,7 +207,7 @@ function App() {
     );
     gsap.fromTo(
       predictiveLine2.current,
-      { xPercent: -600 },  // Start with opacity 0 (faded out)
+      { xPercent: -700 },  // Start with opacity 0 (faded out)
       {
         xPercent: 0,    // Fade in to opacity 1
         scrollTrigger: {
